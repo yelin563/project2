@@ -10,7 +10,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 st.title("1.대피소")
 
-df = pd.read_csv("pages/전국지진해일대피소표준데이터.csv")
+df = pd.read_csv("./pages/전국지진해일대피소표준데이터.csv")
 df.dropna(subset = ['위도','경도'],inplace=True)
 
 df['city'] = df['제공기관명'].apply(lambda x: x.split()[0])
