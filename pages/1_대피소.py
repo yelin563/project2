@@ -10,7 +10,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import os
-
+import urllib.request
 
 st.title("1.대피소")
 
@@ -105,10 +105,10 @@ if button2:
         
 st.divider()
 st.subheader('지역별로 대피소 유형은 어떨까?')
-font_dirs = [os.getcwd() + '/saves']
-font_files = fm.findSystemFonts(fontpaths=font_dirs)
-print(font_files)
-plt.rcParams['font.family'] = 'Hancom Gothic'
+font_url ='https://github.com/yelin563/project2/blob/main/saves/NanumGothic.ttf'
+urllib.request.urlretrieve(font_url, "NanumGothic.ttf")
+
+plt.rcParams['font.family'] = 'NanumGothic'
 city2=st.selectbox("대피소 지역",df["city"].unique(), placeholder="Choose an option")
 button3=st.button('지역별 대피소 유형 보기')
 if button3:
