@@ -2,7 +2,7 @@
 
 import streamlit as st
 import pandas as pd
-import haversine
+from haversine import haversine
 import folium
 from folium import Marker
 from streamlit_folium import st_folium, folium_static
