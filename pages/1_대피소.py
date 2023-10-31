@@ -95,9 +95,9 @@ if button2:
         folium.plugins.Draw(export=False).add_to(m2)
         folium_static(m2)
         with st.form("form2"):
-            st.text_input("대피소까지의 거리를 입력해주세요")
+            mydist=st.text_input("대피소까지의 거리를 입력해주세요")
             manual1=st.text_input("나의 속력, 계단 등을 고려하여 대피에 걸리는 시간을 예상하여 대피 매뉴얼을 적어봅시다.")
-            button4=st.button('매뉴얼 제출하기')
+            button4=st.form_submit_button('매뉴얼 제출하기')
         
 st.divider()
 st.subheader('지역별로 대피소 유형은 어떨까?')
