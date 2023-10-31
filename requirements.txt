@@ -3,3 +3,4 @@ pandas
 haversine
 folium
 matplotlib
+streamlit_folium
