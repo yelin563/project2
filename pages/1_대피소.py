@@ -8,6 +8,12 @@ from folium import Marker
 from streamlit_folium import st_folium, folium_static
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import os
+
+font_dirs = [os.getcwd() + '/customFonts']
+font_files = fm.findSystemFonts(fontpaths=font_dirs)
+print(font_files)
 st.title("1.대피소")
 
 df = pd.read_csv("./saves/전국지진해일대피소표준데이터.csv")
