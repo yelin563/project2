@@ -105,7 +105,7 @@ if button2:
         
 st.divider()
 st.subheader('지역별로 대피소 유형은 어떨까?')
-font_dirs = [os.getcwd() + '/customFonts']
+font_dirs = [os.getcwd() + '/saves']
 font_files = fm.findSystemFonts(fontpaths=font_dirs)
 print(font_files)
 plt.rcParams['font.family'] = 'Hancom Gothic'
