@@ -19,7 +19,7 @@ st.header("지난 시간 복습")
 
 st.write("위도, 경도, 순서쌍 어쩌구")
 
-wmp = Image.open(r'.\saves\wmp.png')
+wmp = Image.open('.\\saves\\wmp.png')
 
 st.image(wmp, caption='위도와 경도')
 school_lat=37.459922787298346
