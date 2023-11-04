@@ -11,6 +11,13 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import os
 import urllib.request
+font_url ='https://github.com/yelin563/project2/blob/main/saves/NanumGothic.ttf'
+urllib.request.urlretrieve(font_url, "NanumGothic.ttf")
+plt.rcParams['font.family'] = 'NanumGothic'
+
+home_lon=st.session_state['home_lon']
+home_lat=st.session_state['home_lat']
+ 
 
 st.title("1.대피소")
 
@@ -22,11 +29,7 @@ with st.form("my_form"):
     header = st.columns([1])
     header[0].subheader('우리 동네 대피소 찾기')
     
-    row1 = st.columns([1,1,1])
-    home = row1[0].text('우리집의 좌표 입력하기')
     
-    home_lat = row1[1].text_input("우리집의 위도",value="37.4649457")
-    home_lon= row1[2].text_input("우리집의 경도",value="126.989175")
     
     row2 = st.columns([1,1,1])
     home = row2[0].text('어떤 대피소를 볼까요?')
@@ -120,5 +123,5 @@ if button3:
 
     st.pyplot(fig)
     
-st.text_input("원 그래프를 통해 알게 된 사실을 공유해봅시다.")    
-        
+st.text_input("원 그래프를 통해 알게 된 사실을 공유해봅시다.")  
+
