@@ -172,7 +172,7 @@ if button2:
 
 colormap4 = linear.YlOrRd_09.scale(newdf['센터당 구급 출동건수'].min(), newdf['센터당 구급 출동건수'].max())
 colormap5 = linear.PuBu_09.scale(newdf['센터당 구조 출동건수'].min(), newdf['센터당 구조 출동건수'].max())
-img = Image.open('saves/안전센터설치기준.png')
+img = Image.open('saves/img119.png')
 if st.session_state.button:
        
     st.image(img, caption='119안전센터 설치기준')
