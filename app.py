@@ -13,6 +13,7 @@ import requests
 
 st.title("우리의 안전은 내가 지킨다!")
 st.divider()
+st.video('https://www.youtube.com/watch?v=301Ticksx00', format="video/mp4", start_time=0)
 st.header("학습목표어쩌구")
 st.divider()
 st.header("지난 시간 복습")
