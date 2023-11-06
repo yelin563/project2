@@ -83,7 +83,7 @@ if button:
 st.divider()    
 st.subheader('어디로 대피할까?')
 st.write('수용인원, 대피소 유형, 거리 등을 고려하여 어디로 대피를 해야할지 매뉴얼을 작성해봅시다')
-sheltername=st.text_input("대피할 대피소 이름(정확히 입력해주세요)")
+sheltername=st.text_input("대피할 대피소 이름(클릭 후 뜨는 대피소 이름을 복사, 붙여넣기 해주세요)")
 button2=st.button('대피소 제출')
 
 
@@ -102,6 +102,7 @@ if button2:
         folium_static(m2)
         with st.form("form2"):
             mydist=st.text_input("대피소까지의 거리를 입력해주세요")
+            mytime=st.text_input("빨리 걸은 때 여러분의 속력이 5km/h이라면 대피할 때 걸리는 시간은 몇 분인가요?  ")
             manual1=st.text_input("나의 속력, 계단 등을 고려하여 대피에 걸리는 시간을 예상하여 대피 매뉴얼을 적어봅시다.")
             button4=st.form_submit_button('매뉴얼 제출하기')
         
