@@ -45,7 +45,7 @@ st.write('지도에서 우리 집의 위치를 클릭하고 팝업창의 확인�
 
 
 m2 = folium.Map()
-folium.plugins.ScaleControl(position='bottomleft').add_to(m2)
+
 m2.add_child(folium.LatLngPopup())
 
 map = st_folium(m2, height=350, width=700)
