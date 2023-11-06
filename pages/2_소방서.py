@@ -164,7 +164,7 @@ if button2:
         x=x,
         y=y
     )
-  st.write("구 별로 안전센터의 개수와 출동 건수가 다른 이유는 무엇일까요?) 
+  st.write("구 별로 안전센터의 개수와 출동 건수가 다른 이유는 무엇일까요?") 
   button4=st.button('119안전센터 설치기준 보기',on_click=click_button())
   
 
