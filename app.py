@@ -45,32 +45,9 @@ st.write('지도에서 우리 집의 위치를 클릭하고 팝업창의 확인�
 
 
 m2 = folium.Map()
-
+folium.plugins.ScaleControl(position='bottomleft').add_to(m2)
 m2.add_child(folium.LatLngPopup())
-'''
-geo_data = requests.get(
-    "https://raw.githubusercontent.com/southkorea/seoul-maps/master/kostat/2013/json/seoul_municipalities_geo.json").json()
-stategeo=folium.GeoJson(
-    geo_data,
-    tooltip=folium.GeoJsonTooltip(
-        fields=["name"],  
-         
-        localize=True,
-        sticky=False,
-        labels=True,
-        max_width=800,
-    )
-).add_to(m2)
 
-statesearch = Search(
-    layer=stategeo,
-    geom_type="Polygon",
-    placeholder="구 이름을 검색하세요",
-    collapsed=False,
-    search_label="name",
-    weight=3,
-).add_to(m2)
-'''
 map = st_folium(m2, height=350, width=700)
 
 
