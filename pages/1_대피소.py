@@ -12,9 +12,7 @@ import matplotlib.font_manager as fm
 import os
 import urllib.request
 import koreanize_matplotlib
-font_url ='https://github.com/yelin563/project2/blob/main/saves/NanumGothic.ttf'
-urllib.request.urlretrieve(font_url, "NanumGothic.ttf")
-plt.rcParams['font.family'] = 'NanumGothic'
+
 
 home_lon=st.session_state['home_lon']
 home_lat=st.session_state['home_lat']
