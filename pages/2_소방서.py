@@ -2,7 +2,7 @@
 
 import streamlit as st
 import pandas as pd
-
+from PIL import Image
 import folium
 from folium import Marker
 from streamlit_folium import st_folium, folium_static
