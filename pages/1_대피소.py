@@ -79,15 +79,19 @@ if button:
     df1.apply(lambda row:folium.Circle(location=[row["위도"],row["경도"]],color='green',fill=True,fill_color='green',radius=row['최대수용인원수']/100).add_to(m1),axis=1)
     
     folium_static(m1)
+if 'button' not in st.session_state:
+    st.session_state.button = False
 
+def click_button():
+    st.session_state.button = True
 st.divider()    
 st.subheader('어디로 대피할까?')
 st.write('수용인원, 대피소 유형, 거리 등을 고려하여 어디로 대피를 해야할지 매뉴얼을 작성해봅시다')
 sheltername=st.text_input("대피할 대피소 이름(클릭 후 뜨는 대피소 이름을 복사, 붙여넣기 해주세요)")
-button2=st.button('대피소 제출')
+button2=st.button('대피소 제출',on_click=click_button())
 
 
-if button2:
+if st.session_state.button:
     sh_d = df[df["지진해일대피소명"].isin([sheltername])]
     
     if len(sh_d)==0:
