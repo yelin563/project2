@@ -139,8 +139,8 @@ colormap3.add_to(m2)
 folium.LayerControl().add_to(m2)
 folium_static(m2)
 st.divider()
-st.subheader('3) 119안전센터의 갯수와 출동건수의 상관관계')
-st.write('구급 출동건수, 구조 출동건수, 119안전센터의 개수의 상관관계는 무엇일까요?')
+st.subheader('3) 119안전센터의 갯수와 출동건수')
+
 newdf= pd.merge(df119, df1,on='구')
 newdf= pd.merge(newdf, df2,on='구')
 newdf['센터당 구급 출동건수']=newdf['구급 출동건수']/newdf['119안전센터(개소)']
@@ -151,6 +151,12 @@ with st.form("form2"):
             x=st.selectbox("x축",['구급 출동건수','구조 출동건수','119안전센터(개소)'], placeholder="Choose an option")
             y=st.selectbox("y축",['구급 출동건수','구조 출동건수','119안전센터(개소)'], placeholder="Choose an option")
             button2=st.form_submit_button('제출하기')
+if 'button' not in st.session_state:
+    st.session_state.button = False
+
+def click_button():
+    st.session_state.button = True
+
 if button2:
     
     st.scatter_chart(
@@ -158,33 +164,24 @@ if button2:
         x=x,
         y=y
     )
+  st.write("구 별로 안전센터의 개수와 출동 건수가 다른 이유는 무엇일까요?) 
+  button4=st.button('119안전센터 설치기준 보기',on_click=click_button())
+  
 
-an1=st.selectbox("119안전센터의 갯수와 출동건수의 상관관계는 무엇일까요?",['음의 상관관계','양의 상관관계','상관관계가 없음'], placeholder="Choose an option")
-button3=st.button('제출하기')
-if 'button' not in st.session_state:
-    st.session_state.button = False
 
-def click_button():
-    st.session_state.button = True
 
-if button3:
-    if an1=='양의 상관관계':
-        st.write('맞아요! 그렇다면 119안전센터가 많아질수록 출동할 일이 많아지는 걸까요? 의견을 공유해봅시다')
-        button4=st.button('다음 활동 진행하기',on_click=click_button())
-        
-        
-            
-    else:
-        st.write('점이 어떤 직선 주위에 있는지 다시 생각해봅시다')
 colormap4 = linear.YlOrRd_09.scale(newdf['센터당 구급 출동건수'].min(), newdf['센터당 구급 출동건수'].max())
 colormap5 = linear.PuBu_09.scale(newdf['센터당 구조 출동건수'].min(), newdf['센터당 구조 출동건수'].max())
-st.divider()
+
 if st.session_state.button:
-    st.write('인구가 많은 지역에 119안전센터를 많이 짓기 때문이었네요!')
-    st.write('양의 상관관계가 인과관계와는 다르다는 것을 배웠습니다.')
+    img = Image.open(r'/saves/안전센터설치기준.png')
+
+    st.image(img, caption='119안전센터 설치기준')
+    st.write('인구가 많은 지역에 119안전센터를 많이 짓고 인구가 많은 지역에 출동건수가 많기 때문이었네요!')
+    
     st.write('구의 인구에 맞춰 119안전센터를 지었으니 119안전센터별 출동건수는 모두 비슷할까요?')
     st.write('119안전센터가 가장 바쁜 구와 가장 여유로운 구는 어디일까요?')
-    
+    st.divider()
     st.subheader("4) 119안전센터 당 출동건수")
     with st.form("form3"):
         st.write("각 구 별로 어떤 계산을 해봐야 할까요?")
