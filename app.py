@@ -14,7 +14,8 @@ import requests
 st.title("우리의 안전은 내가 지킨다!")
 st.divider()
 st.video('https://www.youtube.com/watch?v=301Ticksx00', format="video/mp4", start_time=0)
-st.header("학습목표어쩌구")
+st.header("[학습목표] 1.[사회] 위기 상황에 맞는 적절한 지리 정보를 활용하여 안전을 지키는 방법을 설명할 수 있다.")
+
 st.divider()
 st.header("지난 시간 복습")
 
