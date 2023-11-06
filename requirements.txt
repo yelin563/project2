@@ -4,3 +4,4 @@ haversine
 folium
 matplotlib
 streamlit_folium
+koreanize-matplotlib
