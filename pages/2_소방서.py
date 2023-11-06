@@ -174,8 +174,7 @@ colormap4 = linear.YlOrRd_09.scale(newdf['센터당 구급 출동건수'].min(),
 colormap5 = linear.PuBu_09.scale(newdf['센터당 구조 출동건수'].min(), newdf['센터당 구조 출동건수'].max())
 img = Image.open('saves/안전센터설치기준.png')
 if st.session_state.button:
-    
-    
+       
     st.image(img, caption='119안전센터 설치기준')
     st.write('인구가 많은 지역에 119안전센터를 많이 짓고 인구가 많은 지역에 출동건수가 많기 때문이었네요!')
     
