@@ -104,20 +104,20 @@ if st.session_state.button:
         Marker([sh_d['위도'], sh_d['경도']],popup='대피소',icon=folium.Icon(color='red')).add_to(m2)
         folium.plugins.Draw(export=False).add_to(m2)
         folium_static(m2)
-        with st.form("form2"):
-            mydist=st.text_input("대피소까지의 거리(m)를 입력해주세요.(숫자만 입력)")
-            mytime=st.text_input("빨리 걸을 때 여러분의 속력이 5km/h이라면 대피할 때 걸리는 시간은 몇 분인가요? (숫자만 입력)")
-            mydist=float(mydist)
-            mytime=float(mytime)
-            button4=st.form_submit_button('제출하기')
-            if button4:
-              
-              if int(mydist/500*6)<=mytime<=int(mydist/500*6)+1:
-                st.write("거리와 속력으로 대피 시간을 잘 계산했네요! 다음 활동을 진행해주세요.")
-              else:
-                st.write("대피 시간을 다시 계산해봅시다! 단위를 주의해주세요")
-        manual1=st.text_input("대피 시간, 계단, 대피 요령 등을 고려하여 대피 매뉴얼을 적어봅시다.")
-        button6=st.button('매뉴얼 제출하기')
+with st.form("form2"):
+    mydist=st.text_input("대피소까지의 거리(m)를 입력해주세요.(숫자만 입력)")
+    mytime=st.text_input("빨리 걸을 때 여러분의 속력이 5km/h이라면 대피할 때 걸리는 시간은 몇 분인가요? (숫자만 입력)")
+    mydist=float(mydist)
+    mytime=float(mytime)
+    button4=st.form_submit_button('제출하기')
+    if button4:
+      
+      if int(mydist/500*6)<=mytime<=int(mydist/500*6)+1:
+        st.write("거리와 속력으로 대피 시간을 잘 계산했네요! 다음 활동을 진행해주세요.")
+      else:
+        st.write("대피 시간을 다시 계산해봅시다! 단위를 주의해주세요")
+manual1=st.text_input("대피 시간, 계단, 대피 요령 등을 고려하여 대피 매뉴얼을 적어봅시다.")
+button6=st.button('매뉴얼 제출하기')
                 
         
 st.divider()
