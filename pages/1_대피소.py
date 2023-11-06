@@ -109,7 +109,6 @@ if st.session_state.button:
             mytime=st.text_input("빨리 걸을 때 여러분의 속력이 5km/h이라면 대피할 때 걸리는 시간은 몇 분인가요? (숫자만 입력)")
             mydist=float(mydist)
             mytime=float(mytime)
-         
             button4=st.form_submit_button('제출하기')
             if button4:
               
