@@ -116,7 +116,7 @@ if st.session_state.button:
                 st.write("거리와 속력으로 대피 시간을 잘 계산했네요! 다음 활동을 진행해주세요.")
               else:
                 st.write("대피 시간을 다시 계산해봅시다! 단위를 주의해주세요")
-        manual1=st.text_input("대피 시간, 계단, 대피 요령 등을 고려하여 대피에 걸리는 시간을 예상하여 대피 매뉴얼을 적어봅시다.")
+        manual1=st.text_input("대피 시간, 계단, 대피 요령 등을 고려하여 대피 매뉴얼을 적어봅시다.")
         button6=st.button('매뉴얼 제출하기')
                 
         
