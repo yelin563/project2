@@ -44,7 +44,7 @@ st.write('지도에서 우리 집의 위치를 클릭하고 팝업창의 확인�
 
 
 
-m2 = folium.Map()
+m2 = folium.Map(control_scale=True)
 
 m2.add_child(folium.LatLngPopup())
 
