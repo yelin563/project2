@@ -34,6 +34,8 @@ if 'button24' not in st.session_state:
     st.session_state.button24 = False
 if 'button25' not in st.session_state:
     st.session_state.button25 = False
+if 'button26' not in st.session_state:
+    st.session_state.button26 = False
 with st.form("my_form"):
     header = st.columns([1])
     header[0].subheader('1) 우리 동네 대피소 찾기')
@@ -74,17 +76,22 @@ if st.session_state.button21:
                                popup=row['지진해일대피소명']).add_to(m1),axis=1)
     df1.apply(lambda row:folium.Circle(location=[row["위도"],row["경도"]],color='green',fill=True,fill_color='green',radius=row['최대수용인원수']/100).add_to(m1),axis=1)
     
-    map=st_folium(m1,width=725,height=400)
+    folium_static(m1)
     st.write("대피소 정보 확인하기")
-    sheltername=map['last_object_clicked_popup']
+    
+    sheltername=st.text_input("대피할 대피소 이름(클릭 후 뜨는 대피소 이름을 복사, 붙여넣기 해주세요)")
+    st.button("대피소 정보 확인하기", on_click=click_button, args=("button26",))
+    
+    
+if st.session_state.button26:
     st.write(sheltername)
     sh_d = df[df["지진해일대피소명"].isin([sheltername])]
-    
-    st.write(sh_d)
-    st.write('수용인원, 대피소 유형, 거리 등을 고려하여 대피할 대피소를 확정해봅시다')
-    st.button("대피소 확정하기", on_click=click_button,args=('button22',))
-
-
+    if len(sh_d)==0:
+        st.write('대피소명을 다시 확인해주세요!')
+    else:
+        st.write(sh_d)
+        st.write('수용인원, 대피소 유형, 거리 등을 고려하여 어디로 대피를 해야할지 선택해봅시다')
+        st.button("대피소 확정하기", on_click=click_button, args=("button22",))
 
      
 st.divider()
@@ -151,4 +158,5 @@ if st.session_state.button24:
         
     answer=st.text_input("막대 그래프를 통해 알게 된 사실을 공유해봅시다.")
     st.button('제출하기', on_click=addresponse , args=('대피소 막대 그래프',answer))
+  
   
