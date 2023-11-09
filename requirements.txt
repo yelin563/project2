@@ -3,5 +3,5 @@ pandas
 haversine
 folium
 matplotlib
-streamlit_folium
+streamlit_folium==0.15.0
 koreanize-matplotlib
