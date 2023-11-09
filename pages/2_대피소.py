@@ -10,7 +10,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 
-import seaborn as sns
 import koreanize_matplotlib
 from PIL import Image
 
