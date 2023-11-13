@@ -38,12 +38,12 @@ with st.form("form"):
     sch_lon= row1[2].text_input("우리 학교의 경도")
     button=st.form_submit_button('과연 예상한 곳은?')
     
-if button:
-    m1 = folium.Map(location=[sch_lat, sch_lon], zoom_start=20)
-    Marker([sch_lat, sch_lon],popup='예상한 위도와 경도',icon=folium.Icon(color='blue',icon='star')).add_to(m1)
-    folium_static(m1)
-    st.write(f'실제 우리 학교의 위도는 {school_lat}이고 경도는 {school_lon}입니다')
-    st.write('값이 조금만 달라져도 매우 멀어지는군요!')
+    if button:
+        m1 = folium.Map(location=[sch_lat, sch_lon], zoom_start=20)
+        Marker([sch_lat, sch_lon],popup='예상한 위도와 경도',icon=folium.Icon(color='blue',icon='star')).add_to(m1)
+        folium_static(m1)
+        st.write(f'실제 우리 학교의 위도는 {school_lat}이고 경도는 {school_lon}입니다')
+        st.write('값이 조금만 달라져도 매우 멀어지는군요!')
     
 st.header("우리 집의 위도와 경도 찾기:derelict_house_building:")
 
